@@ -2537,7 +2537,7 @@ SHOW_VAR com_status_vars[]= {
 
 
 #ifndef EMBEDDED_LIBRARY
-LEX_CSTRING sql_statement_names[(uint) SQLCOM_END + 1];
+LEX_CSTRING sql_statement_names[(uint) SQLCOM_END + 1]; // ylc: 内部存放着诸如"create_db" "insert"等对应于SQL语句的字符串,参考 enum_sql_command
 
 static void init_sql_statement_names()
 {
@@ -4424,7 +4424,7 @@ int mysqld_main(int argc, char **argv)
 
 #ifndef _WIN32
 #ifdef WITH_PERFSCHEMA_STORAGE_ENGINE
-  pre_initialize_performance_schema();
+  pre_initialize_performance_schema(); // ylc: 参考 http://mysql.taobao.org/monthly/2021/09/03/
 #endif /*WITH_PERFSCHEMA_STORAGE_ENGINE */
   // For windows, my_init() is called from the win specific mysqld_main
   if (my_init())                 // init my_sys library & pthreads
@@ -5644,7 +5644,7 @@ void adjust_related_options(ulong *requested_open_files)
   adjust_table_def_size();
 }
 
-vector<my_option> all_options;
+vector<my_option> all_options; // ylc: 参考 http://www.beylze.cn/mysql/857.html
 
 struct my_option my_long_early_options[]=
 {
@@ -5669,7 +5669,7 @@ struct my_option my_long_early_options[]=
    " Create a super user with a random expired password and store it into the log.",
    &opt_initialize, &opt_initialize, 0, GET_BOOL, NO_ARG, 0, 0, 0, 0, 0, 0},
   {"initialize-insecure", 0, "Create the default database and exit."
-   " Create a super user with empty password.",
+   " Create a super user with empty password.",// ylc: https://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization.html
    &opt_initialize_insecure, &opt_initialize_insecure, 0, GET_BOOL, NO_ARG,
    0, 0, 0, 0, 0, 0},
   {"disable-partition-engine-check", 0,

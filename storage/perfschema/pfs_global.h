@@ -32,7 +32,7 @@
 */
 
 /** True when the performance schema is initialized. */
-extern bool pfs_initialized;
+extern bool pfs_initialized; // ylc: pfs = performance schema
 
 #if defined(HAVE_POSIX_MEMALIGN) || defined(HAVE_MEMALIGN) || defined(HAVE_ALIGNED_MALLOC)
 #define PFS_ALIGNEMENT 64
