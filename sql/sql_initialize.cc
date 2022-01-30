@@ -282,7 +282,7 @@ void Compiled_in_command_iterator::end(void)
   @retval true   failed to create. Error printed.
   @retval false  success
 */
-bool initialize_create_data_directory(const char *data_home)
+bool initialize_create_data_directory(const char *data_home) // ylc: 参考: https://www.cnblogs.com/zhangxl1016/articles/14646832.html
 {
   MY_DIR *dir;
   int flags=

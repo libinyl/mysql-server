@@ -96,7 +96,7 @@ extern enum thr_lock_type thr_upgraded_concurrent_insert_lock;
   of an instance of this structure is used to uniquely identify the thread.
 */
 
-typedef struct st_thr_lock_info
+typedef struct st_thr_lock_info // ylc: https://www.cnblogs.com/xpchild/p/3789068.html
 {
   my_thread_id thread_id;
   mysql_cond_t *suspend;
